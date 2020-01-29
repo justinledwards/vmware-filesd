@@ -55,6 +55,10 @@ class Host:
     def add_values(self, key, value):
         print(f"Adding value to {self.hostname} key: {key} value: {value}")
         self.tags[key] = value
+        if self.tags['Servers'] == 'Linux':
+          self.tags['port'] = '9100'
+        if self.tags['Servers'] == 'Windows':
+          self.tags['port'] = '9182'
 
     def get_hostname(self):
         return self.hostname
